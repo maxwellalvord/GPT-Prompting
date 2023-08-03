@@ -60,3 +60,11 @@ dashboard = pn.Column(
 )
 
 dashboard
+
+def create_summary(_):
+    messages =  context.copy()
+    messages.append(
+    {'role':'system', 'content':'create a json summary of the academic article cited. Itemize it via title, author, year, URL'},    
+    )
+    response = get_completion_from_messages(messages, temperature=0)
+    print(response)
